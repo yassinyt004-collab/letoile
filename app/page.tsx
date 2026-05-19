@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Categories from "@/components/Categories";
-import BestSellers from "@/components/BestSellers";
+import Menu from "@/components/Menu";
 import About from "@/components/About";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Testimonials from "@/components/Testimonials";
@@ -14,8 +13,7 @@ export default function HomePage() {
     <main className="relative">
       <Navbar />
       <Hero />
-      <Categories />
-      <BestSellers />
+      <Menu />
       <About />
       <WhyChooseUs />
       <Testimonials />

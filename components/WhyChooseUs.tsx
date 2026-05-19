@@ -14,45 +14,44 @@ const items = [
   {
     icon: Beef,
     title: "Viandes Premium",
-    desc: "Bœuf Angus, agneau et poulet fermier sélectionnés.",
-    accent: "red",
+    desc: "Bœuf, poulet, kebab — viandes sélectionnées avec soin pour chaque recette.",
+    accent: "red" as const,
   },
   {
     icon: Drumstick,
     title: "Frites Maison",
-    desc: "Pommes de terre fraîches, coupées et frites sur place.",
-    accent: "gold",
+    desc: "Pommes de terre fraîches coupées et frites sur place chaque jour.",
+    accent: "gold" as const,
   },
   {
     icon: Sparkles,
     title: "Sauces Signature",
-    desc: "Recettes exclusives élaborées par notre chef.",
-    accent: "red",
+    desc: "13 sauces maison dont notre Samourai, Biggy Burger et Chili Thaï.",
+    accent: "red" as const,
   },
   {
     icon: Truck,
     title: "Livraison Rapide",
-    desc: "Commande livrée chaude en moins de 30 minutes.",
-    accent: "gold",
+    desc: "Commandez et recevez votre repas chaud en un temps record.",
+    accent: "gold" as const,
   },
   {
     icon: Salad,
     title: "Produits Frais",
-    desc: "Légumes du marché chaque matin, jamais surgelés.",
-    accent: "red",
+    desc: "Légumes frais, pains artisanaux, ingrédients renouvelés quotidiennement.",
+    accent: "red" as const,
   },
   {
     icon: ShieldCheck,
     title: "Qualité Garantie",
-    desc: "Si ce n'est pas parfait, c'est offert.",
-    accent: "gold",
+    desc: "Une exigence sans compromis sur chaque produit que nous servons.",
+    accent: "gold" as const,
   },
 ];
 
 export default function WhyChooseUs() {
   return (
     <section className="relative section-pad">
-      {/* Background */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-crimson/40 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-crimson/40 to-transparent" />
@@ -60,13 +59,13 @@ export default function WhyChooseUs() {
 
       <div className="container-x">
         <div className="mx-auto max-w-2xl text-center">
-          <span className="heading-eyebrow mx-auto">Pourquoi nous choisir</span>
+          <span className="heading-eyebrow mx-auto">Pourquoi L&apos;Étoile</span>
           <h2 className="heading-display mt-4 text-white">
             L&apos;exigence dans chaque{" "}
             <span className="text-gradient-red">détail</span>
           </h2>
           <p className="mt-4 text-white/55">
-            Six promesses qui font la différence — et le succès — de L&apos;Étoile.
+            Six engagements qui font la différence chez L&apos;Étoile Clermont.
           </p>
         </div>
 
@@ -80,7 +79,6 @@ export default function WhyChooseUs() {
               transition={{ duration: 0.6, delay: i * 0.07 }}
               className="group relative overflow-hidden rounded-3xl border border-white/8 bg-ink-800/50 p-7 backdrop-blur-sm transition-all duration-500 hover:-translate-y-1 hover:border-crimson/40 hover:bg-ink-800"
             >
-              {/* Glow on hover */}
               <div className="pointer-events-none absolute -inset-px rounded-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-crimson/15 to-transparent" />
               </div>
@@ -107,7 +105,6 @@ export default function WhyChooseUs() {
                   {it.desc}
                 </p>
 
-                {/* Number */}
                 <span className="absolute right-0 top-0 font-display text-5xl font-black text-white/[0.04]">
                   0{i + 1}
                 </span>
