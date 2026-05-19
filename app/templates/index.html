@@ -1,0 +1,261 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- ======================= CONTACT SECTION ======================= -->
+<section id="contact" class="py-24 bg-[#0a0a0a] relative overflow-hidden">
+  <!-- Background accent -->
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-red-950/5 to-transparent pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <!-- Section Header -->
+    <div class="text-center mb-16" data-aos="fade-up">
+      <span class="inline-block px-4 py-1.5 rounded-full bg-red-900/30 border border-red-800/30 text-red-400 text-sm font-medium tracking-wider uppercase mb-4">
+        Nous Trouver
+      </span>
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+        Nos <span class="text-red-500">Adresses</span>
+      </h2>
+      <p class="text-gray-400 max-w-2xl mx-auto text-lg">
+        Deux adresses au coeur de Clermont-Ferrand pour vous accueillir 7j/7 de 10h à 01h.
+      </p>
+    </div>
+
+    <!-- Contact Cards -->
+    <div class="grid md:grid-cols-2 gap-8 mb-16">
+      <!-- Ballainvilliers -->
+      <div class="bg-white/[0.03] backdrop-blur-xl border border-white/[0.06] rounded-2xl p-8 hover:border-red-500/30 transition-all duration-500 group" data-aos="fade-up" data-aos-delay="100">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-12 h-12 rounded-xl bg-red-900/30 border border-red-800/30 flex items-center justify-center">
+            <i data-lucide="map-pin" class="w-5 h-5 text-red-400"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white group-hover:text-red-400 transition-colors">Ballainvilliers</h3>
+        </div>
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <i data-lucide="navigation" class="w-4 h-4 text-red-500 mt-1 flex-shrink-0"></i>
+            <p class="text-gray-300">29 Rue Ballainvilliers, 63000 Clermont-Ferrand</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <i data-lucide="phone" class="w-4 h-4 text-red-500 flex-shrink-0"></i>
+            <a href="tel:0473905738" class="text-gray-300 hover:text-red-400 transition-colors">04 73 90 57 38</a>
+          </div>
+          <div class="flex items-center gap-3">
+            <i data-lucide="clock" class="w-4 h-4 text-red-500 flex-shrink-0"></i>
+            <p class="text-gray-300">7j/7 &mdash; 10h - 01h</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Montferrand -->
+      <div class="bg-white/[0.03] backdrop-blur-xl border border-white/[0.06] rounded-2xl p-8 hover:border-red-500/30 transition-all duration-500 group" data-aos="fade-up" data-aos-delay="200">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-12 h-12 rounded-xl bg-red-900/30 border border-red-800/30 flex items-center justify-center">
+            <i data-lucide="map-pin" class="w-5 h-5 text-red-400"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-white group-hover:text-red-400 transition-colors">Montferrand</h3>
+        </div>
+        <div class="space-y-4">
+          <div class="flex items-start gap-3">
+            <i data-lucide="navigation" class="w-4 h-4 text-red-500 mt-1 flex-shrink-0"></i>
+            <p class="text-gray-300">2 Rue Debay Facy, 63000 Clermont-Ferrand</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <i data-lucide="phone" class="w-4 h-4 text-red-500 flex-shrink-0"></i>
+            <a href="tel:0463082410" class="text-gray-300 hover:text-red-400 transition-colors">04 63 08 24 10</a>
+          </div>
+          <div class="flex items-center gap-3">
+            <i data-lucide="clock" class="w-4 h-4 text-red-500 flex-shrink-0"></i>
+            <p class="text-gray-300">7j/7 &mdash; 10h - 01h</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Google Maps -->
+    <div class="rounded-2xl overflow-hidden border border-white/[0.06] relative" data-aos="fade-up" data-aos-delay="300">
+      <!-- Dark filter overlay -->
+      <div class="absolute inset-0 bg-[#0a0a0a]/40 pointer-events-none z-10 mix-blend-multiply"></div>
+      <div class="relative" style="filter: brightness(0.7) contrast(1.1) saturate(0.3) hue-rotate(180deg) invert(1);">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2809.123456!2d3.0823!3d45.7753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s29+Rue+Ballainvilliers+Clermont-Ferrand!5e0!3m2!1sfr!2sfr!4v1"
+          width="100%"
+          height="400"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="w-full"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="bg-[#050505] border-t border-white/[0.06] pt-16 pb-8">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-4 gap-12 mb-12">
+      <!-- Logo & Description -->
+      <div class="md:col-span-1">
+        <a href="#" class="inline-block mb-4">
+          <span class="text-2xl font-bold text-white">L'<span class="text-red-500">Étoile</span></span>
+        </a>
+        <p class="text-gray-400 text-sm leading-relaxed mb-6">
+          Restaurant &amp; bar au coeur de Clermont-Ferrand. Une cuisine authentique dans une ambiance chaleureuse, 7 jours sur 7.
+        </p>
+        <div class="flex items-center gap-3">
+          <a href="#" class="w-9 h-9 rounded-lg bg-white/[0.05] border border-white/[0.08] flex items-center justify-center hover:bg-red-900/30 hover:border-red-800/30 transition-all">
+            <i data-lucide="instagram" class="w-4 h-4 text-gray-400 hover:text-red-400"></i>
+          </a>
+          <a href="#" class="w-9 h-9 rounded-lg bg-white/[0.05] border border-white/[0.08] flex items-center justify-center hover:bg-red-900/30 hover:border-red-800/30 transition-all">
+            <i data-lucide="facebook" class="w-4 h-4 text-gray-400 hover:text-red-400"></i>
+          </a>
+          <a href="#" class="w-9 h-9 rounded-lg bg-white/[0.05] border border-white/[0.08] flex items-center justify-center hover:bg-red-900/30 hover:border-red-800/30 transition-all">
+            <i data-lucide="phone" class="w-4 h-4 text-gray-400 hover:text-red-400"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Navigation Links -->
+      <div>
+        <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Navigation</h4>
+        <ul class="space-y-3">
+          <li><a href="#hero" class="text-gray-400 hover:text-red-400 transition-colors text-sm">Accueil</a></li>
+          <li><a href="#about" class="text-gray-400 hover:text-red-400 transition-colors text-sm">Notre Histoire</a></li>
+          <li><a href="#menu" class="text-gray-400 hover:text-red-400 transition-colors text-sm">La Carte</a></li>
+          <li><a href="#gallery" class="text-gray-400 hover:text-red-400 transition-colors text-sm">Galerie</a></li>
+          <li><a href="#contact" class="text-gray-400 hover:text-red-400 transition-colors text-sm">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Categories -->
+      <div>
+        <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">La Carte</h4>
+        <ul class="space-y-3">
+          <li><a href="#menu" class="text-gray-400 hover:text-red-400 transition-colors text-sm">Entrées</a></li>
+          <li><a href="#menu" class="text-gray-400 hover:text-red-400 transition-colors text-sm">Plats</a></li>
+          <li><a href="#menu" class="text-gray-400 hover:text-red-400 transition-colors text-sm">Burgers</a></li>
+          <li><a href="#menu" class="text-gray-400 hover:text-red-400 transition-colors text-sm">Desserts</a></li>
+          <li><a href="#menu" class="text-gray-400 hover:text-red-400 transition-colors text-sm">Boissons</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div>
+        <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Contact</h4>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-2">
+            <i data-lucide="map-pin" class="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0"></i>
+            <span class="text-gray-400 text-sm">29 Rue Ballainvilliers, 63000</span>
+          </li>
+          <li class="flex items-start gap-2">
+            <i data-lucide="map-pin" class="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0"></i>
+            <span class="text-gray-400 text-sm">2 Rue Debay Facy, 63000</span>
+          </li>
+          <li class="flex items-center gap-2">
+            <i data-lucide="phone" class="w-4 h-4 text-red-500 flex-shrink-0"></i>
+            <a href="tel:0473905738" class="text-gray-400 hover:text-red-400 transition-colors text-sm">04 73 90 57 38</a>
+          </li>
+          <li class="flex items-center gap-2">
+            <i data-lucide="phone" class="w-4 h-4 text-red-500 flex-shrink-0"></i>
+            <a href="tel:0463082410" class="text-gray-400 hover:text-red-400 transition-colors text-sm">04 63 08 24 10</a>
+          </li>
+          <li class="flex items-center gap-2">
+            <i data-lucide="clock" class="w-4 h-4 text-red-500 flex-shrink-0"></i>
+            <span class="text-gray-400 text-sm">7j/7 &mdash; 10h - 01h</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="border-t border-white/[0.06] pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-gray-500 text-sm">
+        &copy; 2025 L'Étoile Clermont-Ferrand. Tous droits réservés.
+      </p>
+      <div class="flex items-center gap-6">
+        <a href="#" class="text-gray-500 hover:text-red-400 transition-colors text-sm">Mentions Légales</a>
+        <a href="#" class="text-gray-500 hover:text-red-400 transition-colors text-sm">Politique de Confidentialité</a>
+      </div>
+    </div>
+  </div>
+</footer>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  // ======================= NAVBAR SCROLL EFFECT =======================
+  (function() {
+    const navbar = document.getElementById('navbar');
+    if (!navbar) return;
+
+    function handleScroll() {
+      if (window.scrollY > 30) {
+        navbar.classList.add('bg-ink-900/90', 'backdrop-blur-xl', 'border-b', 'border-white/5');
+      } else {
+        navbar.classList.remove('bg-ink-900/90', 'backdrop-blur-xl', 'border-b', 'border-white/5');
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+  })();
+
+  // ======================= MOBILE MENU TOGGLE =======================
+  (function() {
+    const menuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (!menuToggle || !mobileMenu) return;
+
+    menuToggle.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+      // Toggle icon between menu and x
+      const icon = menuToggle.querySelector('[data-lucide]');
+      if (icon) {
+        const isOpen = !mobileMenu.classList.contains('hidden');
+        icon.setAttribute('data-lucide', isOpen ? 'x' : 'menu');
+        lucide.createIcons();
+      }
+    });
+
+    // Close mobile menu when clicking a link
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(function(link) {
+      link.addEventListener('click', function() {
+        mobileMenu.classList.add('hidden');
+        const icon = menuToggle.querySelector('[data-lucide]');
+        if (icon) {
+          icon.setAttribute('data-lucide', 'menu');
+          lucide.createIcons();
+        }
+      });
+    });
+  })();
+
+  // ======================= MENU ACCORDION =======================
+  function toggleMenu(button) {
+    const content = button.nextElementSibling;
+    const chevron = button.querySelector('[data-lucide="chevron-down"]');
+
+    if (!content || !content.classList.contains('menu-content')) return;
+
+    // Toggle visibility
+    if (content.classList.contains('hidden')) {
+      content.classList.remove('hidden');
+      content.style.maxHeight = content.scrollHeight + 'px';
+      content.style.opacity = '1';
+    } else {
+      content.style.maxHeight = '0px';
+      content.style.opacity = '0';
+      setTimeout(function() {
+        content.classList.add('hidden');
+      }, 300);
+    }
+
+    // Rotate chevron icon
+    if (chevron) {
+      chevron.classList.toggle('rotate-180');
+    }
+  }
+</script>
+{% endblock %}

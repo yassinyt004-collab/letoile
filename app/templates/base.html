@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Étoile Clermont — Tacos, Burgers, Sandwichs Premium</title>
+    <meta name="description" content="Restaurant fast-food premium à Clermont-Ferrand. Tacos, burgers, sandwichs, bowls et frites maison. 2 adresses : Ballainvilliers & Montferrand. Ouvert 7j/7 de 10h à 01h.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: {
+                ink: { 950:'#050505', 900:'#0a0a0a', 800:'#111111', 700:'#1a1a1a' },
+                crimson: { DEFAULT:'#c1121f', 200:'#ffaeb4', 300:'#ff7780', 400:'#f03a48', 500:'#c1121f', 700:'#7a0911' },
+                gold: { DEFAULT:'#f5b042', 400:'#ffc15c' }
+            }}}
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <style>
+        body { background:#0a0a0a; color:#f5f5f5; font-family:'Inter',system-ui,sans-serif; }
+        .font-display { font-family:'Playfair Display',serif; }
+        ::selection { background:rgba(193,18,31,0.5); color:#fff; }
+        .menu-content { transition: max-height 0.3s ease, opacity 0.3s ease; overflow:hidden; }
+    </style>
+</head>
+<body class="antialiased">
+    {% block content %}{% endblock %}
+    <script>AOS.init({ duration:700, once:true, offset:80 }); lucide.createIcons();</script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>
