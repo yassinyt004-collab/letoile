@@ -1,261 +1,1064 @@
 {% extends "base.html" %}
-
 {% block content %}
-<!-- ======================= CONTACT SECTION ======================= -->
-<section id="contact" class="py-24 bg-[#0a0a0a] relative overflow-hidden">
-  <!-- Background accent -->
-  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-red-950/5 to-transparent pointer-events-none"></div>
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <!-- Section Header -->
-    <div class="text-center mb-16" data-aos="fade-up">
-      <span class="inline-block px-4 py-1.5 rounded-full bg-red-900/30 border border-red-800/30 text-red-400 text-sm font-medium tracking-wider uppercase mb-4">
-        Nous Trouver
-      </span>
-      <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
-        Nos <span class="text-red-500">Adresses</span>
-      </h2>
-      <p class="text-gray-400 max-w-2xl mx-auto text-lg">
-        Deux adresses au coeur de Clermont-Ferrand pour vous accueillir 7j/7 de 10h à 01h.
-      </p>
-    </div>
+<style>
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+</style>
 
-    <!-- Contact Cards -->
-    <div class="grid md:grid-cols-2 gap-8 mb-16">
-      <!-- Ballainvilliers -->
-      <div class="bg-white/[0.03] backdrop-blur-xl border border-white/[0.06] rounded-2xl p-8 hover:border-red-500/30 transition-all duration-500 group" data-aos="fade-up" data-aos-delay="100">
-        <div class="flex items-center gap-3 mb-6">
-          <div class="w-12 h-12 rounded-xl bg-red-900/30 border border-red-800/30 flex items-center justify-center">
-            <i data-lucide="map-pin" class="w-5 h-5 text-red-400"></i>
-          </div>
-          <h3 class="text-2xl font-bold text-white group-hover:text-red-400 transition-colors">Ballainvilliers</h3>
-        </div>
-        <div class="space-y-4">
-          <div class="flex items-start gap-3">
-            <i data-lucide="navigation" class="w-4 h-4 text-red-500 mt-1 flex-shrink-0"></i>
-            <p class="text-gray-300">29 Rue Ballainvilliers, 63000 Clermont-Ferrand</p>
-          </div>
-          <div class="flex items-center gap-3">
-            <i data-lucide="phone" class="w-4 h-4 text-red-500 flex-shrink-0"></i>
-            <a href="tel:0473905738" class="text-gray-300 hover:text-red-400 transition-colors">04 73 90 57 38</a>
-          </div>
-          <div class="flex items-center gap-3">
-            <i data-lucide="clock" class="w-4 h-4 text-red-500 flex-shrink-0"></i>
-            <p class="text-gray-300">7j/7 &mdash; 10h - 01h</p>
-          </div>
-        </div>
+<!-- NAVBAR -->
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <a href="#hero" class="flex items-center space-x-2">
+        <span class="text-2xl font-bold text-white">★ L'ÉTOILE</span>
+        <span class="text-sm text-gray-400">/ Clermont-Ferrand</span>
+      </a>
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#hero" class="text-gray-300 hover:text-white transition">Accueil</a>
+        <a href="#menu" class="text-gray-300 hover:text-white transition">Notre Carte</a>
+        <a href="#about" class="text-gray-300 hover:text-white transition">À propos</a>
+        <a href="#gallery" class="text-gray-300 hover:text-white transition">Galerie</a>
+        <a href="#contact" class="text-gray-300 hover:text-white transition">Contact</a>
+        <a href="tel:0473905738" class="text-gray-300 hover:text-white transition flex items-center gap-2">
+          <i data-lucide="phone" class="w-4 h-4"></i> 04 73 90 57 38
+        </a>
+        <a href="#menu" class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-full font-semibold transition">Commander</a>
       </div>
+      <button id="menu-toggle" class="md:hidden text-white">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden bg-[#0a0a0a]/95 backdrop-blur-xl border-t border-white/10">
+    <div class="px-4 py-6 space-y-4">
+      <a href="#hero" class="block text-gray-300 hover:text-white transition">Accueil</a>
+      <a href="#menu" class="block text-gray-300 hover:text-white transition">Notre Carte</a>
+      <a href="#about" class="block text-gray-300 hover:text-white transition">À propos</a>
+      <a href="#gallery" class="block text-gray-300 hover:text-white transition">Galerie</a>
+      <a href="#contact" class="block text-gray-300 hover:text-white transition">Contact</a>
+      <a href="tel:0473905738" class="block text-gray-300 hover:text-white transition">04 73 90 57 38</a>
+      <a href="#menu" class="block bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-center transition">Commander</a>
+    </div>
+  </div>
+</nav>
 
-      <!-- Montferrand -->
-      <div class="bg-white/[0.03] backdrop-blur-xl border border-white/[0.06] rounded-2xl p-8 hover:border-red-500/30 transition-all duration-500 group" data-aos="fade-up" data-aos-delay="200">
-        <div class="flex items-center gap-3 mb-6">
-          <div class="w-12 h-12 rounded-xl bg-red-900/30 border border-red-800/30 flex items-center justify-center">
-            <i data-lucide="map-pin" class="w-5 h-5 text-red-400"></i>
-          </div>
-          <h3 class="text-2xl font-bold text-white group-hover:text-red-400 transition-colors">Montferrand</h3>
-        </div>
-        <div class="space-y-4">
-          <div class="flex items-start gap-3">
-            <i data-lucide="navigation" class="w-4 h-4 text-red-500 mt-1 flex-shrink-0"></i>
-            <p class="text-gray-300">2 Rue Debay Facy, 63000 Clermont-Ferrand</p>
-          </div>
-          <div class="flex items-center gap-3">
-            <i data-lucide="phone" class="w-4 h-4 text-red-500 flex-shrink-0"></i>
-            <a href="tel:0463082410" class="text-gray-300 hover:text-red-400 transition-colors">04 63 08 24 10</a>
-          </div>
-          <div class="flex items-center gap-3">
-            <i data-lucide="clock" class="w-4 h-4 text-red-500 flex-shrink-0"></i>
-            <p class="text-gray-300">7j/7 &mdash; 10h - 01h</p>
-          </div>
-        </div>
+
+<!-- HERO SECTION -->
+<section id="hero" class="min-h-screen bg-gradient-to-br from-[#0a0a0a] via-[#1a0a0a] to-[#0a0a0a] flex items-center relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 grid lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <div class="inline-flex items-center gap-2 bg-white/[0.05] border border-white/[0.1] rounded-full px-4 py-2 mb-6">
+        <span class="text-red-400">★</span>
+        <span class="text-gray-300 text-sm">Clermont-Ferrand · 7j/7</span>
+      </div>
+      <h1 class="text-5xl md:text-7xl font-black text-white leading-tight mb-6">
+        LE GOÛT DE<br><span class="bg-gradient-to-r from-red-400 to-red-600 bg-clip-text text-transparent">L'EXCELLENCE</span>
+      </h1>
+      <p class="text-lg text-gray-400 font-medium mb-4">Tacos • Burgers • Sandwichs • Bowls • Frites Maison</p>
+      <p class="text-gray-500 mb-8 max-w-lg">Découvrez une expérience culinaire unique à Clermont-Ferrand. Des produits frais, des recettes signatures et un savoir-faire artisanal pour satisfaire toutes vos envies.</p>
+      <div class="flex flex-wrap gap-4 mb-8">
+        <a href="#menu" class="bg-red-500 hover:bg-red-600 text-white px-8 py-4 rounded-full font-bold text-lg transition transform hover:scale-105">
+          <i data-lucide="utensils" class="w-5 h-5 inline mr-2"></i>Voir la Carte
+        </a>
+        <a href="#contact" class="border border-white/20 hover:border-white/40 text-white px-8 py-4 rounded-full font-bold text-lg transition">
+          <i data-lucide="map-pin" class="w-5 h-5 inline mr-2"></i>Nous Trouver
+        </a>
+      </div>
+      <div class="flex flex-wrap items-center gap-6 text-sm text-gray-400">
+        <span class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-red-400"></i>29 Rue Ballainvilliers</span>
+        <span class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-red-400"></i>2 Rue Debay Facy</span>
+        <span class="flex items-center gap-2"><i data-lucide="clock" class="w-4 h-4 text-red-400"></i>10h - 01h</span>
       </div>
     </div>
-
-    <!-- Google Maps -->
-    <div class="rounded-2xl overflow-hidden border border-white/[0.06] relative" data-aos="fade-up" data-aos-delay="300">
-      <!-- Dark filter overlay -->
-      <div class="absolute inset-0 bg-[#0a0a0a]/40 pointer-events-none z-10 mix-blend-multiply"></div>
-      <div class="relative" style="filter: brightness(0.7) contrast(1.1) saturate(0.3) hue-rotate(180deg) invert(1);">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2809.123456!2d3.0823!3d45.7753!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s29+Rue+Ballainvilliers+Clermont-Ferrand!5e0!3m2!1sfr!2sfr!4v1"
-          width="100%"
-          height="400"
-          style="border:0;"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          class="w-full"
-        ></iframe>
+    <div class="relative hidden lg:block h-[500px]">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-red-500/20 rounded-full blur-3xl"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full border-2 border-red-500/30 overflow-hidden animate-float" style="animation-delay: 0s">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400&h=400&fit=crop" alt="Burger" class="w-full h-full object-cover">
+      </div>
+      <div class="absolute top-4 left-8 w-28 h-28 rounded-2xl overflow-hidden border border-white/10 animate-float" style="animation-delay: 1s">
+        <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=200&h=200&fit=crop" alt="Tacos" class="w-full h-full object-cover">
+      </div>
+      <div class="absolute top-8 right-8 w-24 h-24 rounded-2xl overflow-hidden border border-white/10 animate-float" style="animation-delay: 2s">
+        <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=200&h=200&fit=crop" alt="Frites" class="w-full h-full object-cover">
+      </div>
+      <div class="absolute bottom-12 left-4 w-26 h-26 rounded-2xl overflow-hidden border border-white/10 animate-float" style="animation-delay: 3s">
+        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=200&h=200&fit=crop" alt="Bowl" class="w-full h-full object-cover">
+      </div>
+      <div class="absolute bottom-8 right-12 w-24 h-24 rounded-2xl overflow-hidden border border-white/10 animate-float" style="animation-delay: 4s">
+        <img src="https://images.unsplash.com/photo-1553909489-cd47e0907980?w=200&h=200&fit=crop" alt="Sandwich" class="w-full h-full object-cover">
       </div>
     </div>
   </div>
 </section>
 
-<!-- ======================= FOOTER ======================= -->
-<footer class="bg-[#050505] border-t border-white/[0.06] pt-16 pb-8">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid md:grid-cols-4 gap-12 mb-12">
-      <!-- Logo & Description -->
-      <div class="md:col-span-1">
-        <a href="#" class="inline-block mb-4">
-          <span class="text-2xl font-bold text-white">L'<span class="text-red-500">Étoile</span></span>
-        </a>
-        <p class="text-gray-400 text-sm leading-relaxed mb-6">
-          Restaurant &amp; bar au coeur de Clermont-Ferrand. Une cuisine authentique dans une ambiance chaleureuse, 7 jours sur 7.
-        </p>
-        <div class="flex items-center gap-3">
-          <a href="#" class="w-9 h-9 rounded-lg bg-white/[0.05] border border-white/[0.08] flex items-center justify-center hover:bg-red-900/30 hover:border-red-800/30 transition-all">
-            <i data-lucide="instagram" class="w-4 h-4 text-gray-400 hover:text-red-400"></i>
-          </a>
-          <a href="#" class="w-9 h-9 rounded-lg bg-white/[0.05] border border-white/[0.08] flex items-center justify-center hover:bg-red-900/30 hover:border-red-800/30 transition-all">
-            <i data-lucide="facebook" class="w-4 h-4 text-gray-400 hover:text-red-400"></i>
-          </a>
-          <a href="#" class="w-9 h-9 rounded-lg bg-white/[0.05] border border-white/[0.08] flex items-center justify-center hover:bg-red-900/30 hover:border-red-800/30 transition-all">
-            <i data-lucide="phone" class="w-4 h-4 text-gray-400 hover:text-red-400"></i>
-          </a>
+
+<!-- MENU SECTION -->
+<section id="menu" class="py-24 bg-[#0a0a0a]">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16" data-aos="fade-up">
+      <span class="text-red-400 text-sm font-semibold tracking-widest uppercase">Notre Carte</span>
+      <h2 class="text-4xl md:text-5xl font-black text-white mt-4">Découvrez Nos Saveurs</h2>
+      <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Des recettes uniques préparées avec des produits frais et de qualité</p>
+    </div>
+
+    <div class="space-y-4">
+
+      <!-- 1. Nos Croustiz -->
+      <div class="rounded-xl border border-white/[0.06] bg-white/[0.02] overflow-hidden hover:border-red-500/30 transition">
+        <button onclick="toggleMenu(this)" class="w-full flex items-center justify-between px-6 py-5 text-left">
+          <div class="flex items-center gap-3">
+            <span class="text-red-400 font-bold">01</span>
+            <span class="text-white font-bold text-lg">Nos Croustiz</span>
+            <span class="text-gray-500 text-sm">(3)</span>
+          </div>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300"></i>
+        </button>
+        <div class="menu-content hidden px-6 pb-6">
+          <div class="grid gap-3">
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">L'Original</span><span class="text-red-400 font-bold">9€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Le Spicy</span><span class="text-red-400 font-bold">9€</span>
+            </div>
+            <div class="flex justify-between items-center py-2">
+              <span class="text-gray-300">Le Curry</span><span class="text-red-400 font-bold">9€</span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Navigation Links -->
-      <div>
-        <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Navigation</h4>
-        <ul class="space-y-3">
-          <li><a href="#hero" class="text-gray-400 hover:text-red-400 transition-colors text-sm">Accueil</a></li>
-          <li><a href="#about" class="text-gray-400 hover:text-red-400 transition-colors text-sm">Notre Histoire</a></li>
-          <li><a href="#menu" class="text-gray-400 hover:text-red-400 transition-colors text-sm">La Carte</a></li>
-          <li><a href="#gallery" class="text-gray-400 hover:text-red-400 transition-colors text-sm">Galerie</a></li>
-          <li><a href="#contact" class="text-gray-400 hover:text-red-400 transition-colors text-sm">Contact</a></li>
-        </ul>
+      <!-- 2. Tacos à Composer -->
+      <div class="rounded-xl border border-white/[0.06] bg-white/[0.02] overflow-hidden hover:border-red-500/30 transition">
+        <button onclick="toggleMenu(this)" class="w-full flex items-center justify-between px-6 py-5 text-left">
+          <div class="flex items-center gap-3">
+            <span class="text-red-400 font-bold">02</span>
+            <span class="text-white font-bold text-lg">Tacos à Composer</span>
+            <span class="text-gray-500 text-sm">(4)</span>
+          </div>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300"></i>
+        </button>
+        <div class="menu-content hidden px-6 pb-6">
+          <div class="grid gap-3">
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <div><span class="text-gray-300">Simple M</span><span class="text-gray-500 text-sm ml-2">(1 galette, 1 viande)</span></div><span class="text-red-400 font-bold">8€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <div><span class="text-gray-300">Maxi L</span><span class="text-gray-500 text-sm ml-2">(2 galettes, 2 viandes)</span></div><span class="text-red-400 font-bold">12€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <div><span class="text-gray-300">Mega XL</span><span class="text-gray-500 text-sm ml-2">(3 galettes, 3 viandes)</span></div><span class="text-red-400 font-bold">15€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <div><span class="text-gray-300">Giga XXL</span><span class="text-gray-500 text-sm ml-2">(4 galettes, 4 viandes)</span></div><span class="text-red-400 font-bold">18€</span>
+            </div>
+          </div>
+          <div class="mt-4 p-4 bg-white/[0.03] rounded-lg text-sm text-gray-400">
+            <p class="font-semibold text-gray-300 mb-2">Suppléments :</p>
+            <p>Fromages +1€ · Légumes +1€ · Gratinages +2€/+1.50€ · Frites +1€ · Canette +1.50€</p>
+            <p class="font-semibold text-gray-300 mt-3 mb-1">Viandes :</p>
+            <p>Tenders, Cordon Bleu, Kefta, Viande hachée, Kebab, Steak, Nuggets, Falafel, Chicken, Merguez, Poulet pané</p>
+            <p class="font-semibold text-gray-300 mt-3 mb-1">Sauces :</p>
+            <p>Ketchup, Mayo, Blanche, Harissa, Algérienne, Samourai, Biggy burger, Chili thaï, Curry, Tartare, Andalouse, BBQ, Poivre</p>
+          </div>
+        </div>
       </div>
 
-      <!-- Categories -->
-      <div>
-        <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">La Carte</h4>
-        <ul class="space-y-3">
-          <li><a href="#menu" class="text-gray-400 hover:text-red-400 transition-colors text-sm">Entrées</a></li>
-          <li><a href="#menu" class="text-gray-400 hover:text-red-400 transition-colors text-sm">Plats</a></li>
-          <li><a href="#menu" class="text-gray-400 hover:text-red-400 transition-colors text-sm">Burgers</a></li>
-          <li><a href="#menu" class="text-gray-400 hover:text-red-400 transition-colors text-sm">Desserts</a></li>
-          <li><a href="#menu" class="text-gray-400 hover:text-red-400 transition-colors text-sm">Boissons</a></li>
-        </ul>
+
+      <!-- 3. Tacos Signatures -->
+      <div class="rounded-xl border border-white/[0.06] bg-white/[0.02] overflow-hidden hover:border-red-500/30 transition">
+        <button onclick="toggleMenu(this)" class="w-full flex items-center justify-between px-6 py-5 text-left">
+          <div class="flex items-center gap-3">
+            <span class="text-red-400 font-bold">03</span>
+            <span class="text-white font-bold text-lg">Tacos Signatures</span>
+            <span class="text-gray-500 text-sm">(10)</span>
+          </div>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300"></i>
+        </button>
+        <div class="menu-content hidden px-6 pb-6">
+          <div class="grid gap-3">
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">O'Majestik</span><span class="text-red-400 font-bold">10€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">O'Thentik</span><span class="text-red-400 font-bold">12€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">O'Chèvre Miel</span><span class="text-red-400 font-bold">10€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">O'Spicy</span><span class="text-red-400 font-bold">12€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">O'Xford</span><span class="text-red-400 font-bold">10€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">O'Rientale</span><span class="text-red-400 font-bold">12€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Montagnard</span><span class="text-red-400 font-bold">10€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">O'Vergnat</span><span class="text-red-400 font-bold">12€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">O'Riginal</span><span class="text-red-400 font-bold">12€</span>
+            </div>
+            <div class="flex justify-between items-center py-2">
+              <span class="text-gray-300">Végétarien</span><span class="text-red-400 font-bold">8€</span>
+            </div>
+          </div>
+          <div class="mt-4 p-4 bg-white/[0.03] rounded-lg text-sm text-gray-400">
+            <p>Options : Taille L +3€ · XL +6€ · Frites +1€ · Canette +1.50€</p>
+          </div>
+        </div>
       </div>
 
-      <!-- Contact Info -->
-      <div>
-        <h4 class="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Contact</h4>
-        <ul class="space-y-3">
-          <li class="flex items-start gap-2">
-            <i data-lucide="map-pin" class="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0"></i>
-            <span class="text-gray-400 text-sm">29 Rue Ballainvilliers, 63000</span>
-          </li>
-          <li class="flex items-start gap-2">
-            <i data-lucide="map-pin" class="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0"></i>
-            <span class="text-gray-400 text-sm">2 Rue Debay Facy, 63000</span>
-          </li>
-          <li class="flex items-center gap-2">
-            <i data-lucide="phone" class="w-4 h-4 text-red-500 flex-shrink-0"></i>
-            <a href="tel:0473905738" class="text-gray-400 hover:text-red-400 transition-colors text-sm">04 73 90 57 38</a>
-          </li>
-          <li class="flex items-center gap-2">
-            <i data-lucide="phone" class="w-4 h-4 text-red-500 flex-shrink-0"></i>
-            <a href="tel:0463082410" class="text-gray-400 hover:text-red-400 transition-colors text-sm">04 63 08 24 10</a>
-          </li>
-          <li class="flex items-center gap-2">
-            <i data-lucide="clock" class="w-4 h-4 text-red-500 flex-shrink-0"></i>
-            <span class="text-gray-400 text-sm">7j/7 &mdash; 10h - 01h</span>
-          </li>
-        </ul>
+      <!-- 4. Tacos Sucrés -->
+      <div class="rounded-xl border border-white/[0.06] bg-white/[0.02] overflow-hidden hover:border-red-500/30 transition">
+        <button onclick="toggleMenu(this)" class="w-full flex items-center justify-between px-6 py-5 text-left">
+          <div class="flex items-center gap-3">
+            <span class="text-red-400 font-bold">04</span>
+            <span class="text-white font-bold text-lg">Tacos Sucrés</span>
+            <span class="text-gray-500 text-sm">(4)</span>
+          </div>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300"></i>
+        </button>
+        <div class="menu-content hidden px-6 pb-6">
+          <div class="grid gap-3">
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Nutella</span><span class="text-red-400 font-bold">4€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Kinder Bueno</span><span class="text-red-400 font-bold">5.50€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Kit Kat</span><span class="text-red-400 font-bold">5.50€</span>
+            </div>
+            <div class="flex justify-between items-center py-2">
+              <span class="text-gray-300">MM's Nutella</span><span class="text-red-400 font-bold">5.50€</span>
+            </div>
+          </div>
+        </div>
       </div>
+
+
+      <!-- 5. Burgers -->
+      <div class="rounded-xl border border-white/[0.06] bg-white/[0.02] overflow-hidden hover:border-red-500/30 transition">
+        <button onclick="toggleMenu(this)" class="w-full flex items-center justify-between px-6 py-5 text-left">
+          <div class="flex items-center gap-3">
+            <span class="text-red-400 font-bold">05</span>
+            <span class="text-white font-bold text-lg">Burgers</span>
+            <span class="text-gray-500 text-sm">(13)</span>
+          </div>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300"></i>
+        </button>
+        <div class="menu-content hidden px-6 pb-6">
+          <div class="grid gap-3">
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Veggie</span><span class="text-red-400 font-bold">5€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Chick'n</span><span class="text-red-400 font-bold">5€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Cheese</span><span class="text-red-400 font-bold">5€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Double Cheese</span><span class="text-red-400 font-bold">6.50€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Chèvre Miel</span><span class="text-red-400 font-bold">7€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Baps</span><span class="text-red-400 font-bold">7€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Supreme</span><span class="text-red-400 font-bold">7€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Mac</span><span class="text-red-400 font-bold">7.50€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Triple Cheese</span><span class="text-red-400 font-bold">8€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">King</span><span class="text-red-400 font-bold">8€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">PSG</span><span class="text-red-400 font-bold">8€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Royal Bacon</span><span class="text-red-400 font-bold">7€</span>
+            </div>
+            <div class="flex justify-between items-center py-2">
+              <span class="text-gray-300">Double Cheese Bacon</span><span class="text-red-400 font-bold">8€</span>
+            </div>
+          </div>
+          <div class="mt-4 p-4 bg-white/[0.03] rounded-lg text-sm text-gray-400">
+            <p>Options : Frites +1€ · Canette +1.50€</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Sandwichs Classiques -->
+      <div class="rounded-xl border border-white/[0.06] bg-white/[0.02] overflow-hidden hover:border-red-500/30 transition">
+        <button onclick="toggleMenu(this)" class="w-full flex items-center justify-between px-6 py-5 text-left">
+          <div class="flex items-center gap-3">
+            <span class="text-red-400 font-bold">06</span>
+            <span class="text-white font-bold text-lg">Sandwichs Classiques</span>
+            <span class="text-gray-500 text-sm">(11)</span>
+          </div>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300"></i>
+        </button>
+        <div class="menu-content hidden px-6 pb-6">
+          <div class="grid gap-3">
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Nugget's</span><span class="text-red-400 font-bold">7€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Kebab</span><span class="text-red-400 font-bold">7€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Viande hachée</span><span class="text-red-400 font-bold">7€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Chicken</span><span class="text-red-400 font-bold">7€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Tenders</span><span class="text-red-400 font-bold">7€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Cordon Bleu</span><span class="text-red-400 font-bold">7€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Kefta</span><span class="text-red-400 font-bold">7€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Merguez</span><span class="text-red-400 font-bold">7€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Poulet pané</span><span class="text-red-400 font-bold">7€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Falafel</span><span class="text-red-400 font-bold">7€</span>
+            </div>
+            <div class="flex justify-between items-center py-2">
+              <span class="text-gray-300">Végé (rosty œuf)</span><span class="text-red-400 font-bold">7€</span>
+            </div>
+          </div>
+          <div class="mt-4 p-4 bg-white/[0.03] rounded-lg text-sm text-gray-400">
+            <p>Pain maison ou galette, viande au choix, salade, tomates, oignons, 2 sauces. Menu +2.50€</p>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- 7. Sandwichs Signatures -->
+      <div class="rounded-xl border border-white/[0.06] bg-white/[0.02] overflow-hidden hover:border-red-500/30 transition">
+        <button onclick="toggleMenu(this)" class="w-full flex items-center justify-between px-6 py-5 text-left">
+          <div class="flex items-center gap-3">
+            <span class="text-red-400 font-bold">07</span>
+            <span class="text-white font-bold text-lg">Sandwichs Signatures</span>
+            <span class="text-gray-500 text-sm">(11)</span>
+          </div>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300"></i>
+        </button>
+        <div class="menu-content hidden px-6 pb-6">
+          <div class="grid gap-3">
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">O'Bama</span><span class="text-red-400 font-bold">9€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Panam</span><span class="text-red-400 font-bold">9€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Cowboy</span><span class="text-red-400 font-bold">9€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Veggie Lover</span><span class="text-red-400 font-bold">9€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Ideal</span><span class="text-red-400 font-bold">9€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Zlatan</span><span class="text-red-400 font-bold">9€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Turbo</span><span class="text-red-400 font-bold">9€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">O'Rientale</span><span class="text-red-400 font-bold">9€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Costo</span><span class="text-red-400 font-bold">9€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Radical</span><span class="text-red-400 font-bold">11€</span>
+            </div>
+            <div class="flex justify-between items-center py-2">
+              <span class="text-gray-300">Magistral</span><span class="text-red-400 font-bold">11€</span>
+            </div>
+          </div>
+          <div class="mt-4 p-4 bg-white/[0.03] rounded-lg text-sm text-gray-400">
+            <p>Menu +2.50€</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. Bowl Signatures -->
+      <div class="rounded-xl border border-white/[0.06] bg-white/[0.02] overflow-hidden hover:border-red-500/30 transition">
+        <button onclick="toggleMenu(this)" class="w-full flex items-center justify-between px-6 py-5 text-left">
+          <div class="flex items-center gap-3">
+            <span class="text-red-400 font-bold">08</span>
+            <span class="text-white font-bold text-lg">Bowl Signatures</span>
+            <span class="text-gray-500 text-sm">(13)</span>
+          </div>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300"></i>
+        </button>
+        <div class="menu-content hidden px-6 pb-6">
+          <div class="grid gap-3">
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Indy</span><span class="text-red-400 font-bold">11€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Spicy</span><span class="text-red-400 font-bold">11€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Exotic</span><span class="text-red-400 font-bold">11€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Tipik</span><span class="text-red-400 font-bold">11€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Mythique</span><span class="text-red-400 font-bold">11€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Crousti</span><span class="text-red-400 font-bold">11€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Veggie</span><span class="text-red-400 font-bold">11€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Kebab</span><span class="text-red-400 font-bold">11€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Crispy</span><span class="text-red-400 font-bold">11€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Super</span><span class="text-red-400 font-bold">15€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Cheese</span><span class="text-red-400 font-bold">12€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Big</span><span class="text-red-400 font-bold">15€</span>
+            </div>
+            <div class="flex justify-between items-center py-2">
+              <span class="text-gray-300">Box</span><span class="text-red-400 font-bold">8€</span>
+            </div>
+          </div>
+          <div class="mt-4 p-4 bg-white/[0.03] rounded-lg text-sm text-gray-400">
+            <p>Compose ton Bowl : 1 viande 8€ / 2 viandes 10€</p>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- 9. Menus & Box -->
+      <div class="rounded-xl border border-white/[0.06] bg-white/[0.02] overflow-hidden hover:border-red-500/30 transition">
+        <button onclick="toggleMenu(this)" class="w-full flex items-center justify-between px-6 py-5 text-left">
+          <div class="flex items-center gap-3">
+            <span class="text-red-400 font-bold">09</span>
+            <span class="text-white font-bold text-lg">Menus &amp; Box</span>
+            <span class="text-gray-500 text-sm">(10)</span>
+          </div>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300"></i>
+        </button>
+        <div class="menu-content hidden px-6 pb-6">
+          <div class="grid gap-3">
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Menu Duo</span><span class="text-red-400 font-bold">13.90€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Menu Gourmand</span><span class="text-red-400 font-bold">13.90€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Menu Enfants</span><span class="text-red-400 font-bold">6.90€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Menu Tenders</span><span class="text-red-400 font-bold">8.90€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Menu Wings</span><span class="text-red-400 font-bold">8.90€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Menu Étudiant</span><span class="text-red-400 font-bold">6.90€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Box 1</span><span class="text-red-400 font-bold">23€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Box 2</span><span class="text-red-400 font-bold">27€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Box 3</span><span class="text-red-400 font-bold">27€</span>
+            </div>
+            <div class="flex justify-between items-center py-2">
+              <span class="text-gray-300">Box 4</span><span class="text-red-400 font-bold">30€</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10. Assiettes -->
+      <div class="rounded-xl border border-white/[0.06] bg-white/[0.02] overflow-hidden hover:border-red-500/30 transition">
+        <button onclick="toggleMenu(this)" class="w-full flex items-center justify-between px-6 py-5 text-left">
+          <div class="flex items-center gap-3">
+            <span class="text-red-400 font-bold">10</span>
+            <span class="text-white font-bold text-lg">Assiettes</span>
+            <span class="text-gray-500 text-sm">(3)</span>
+          </div>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300"></i>
+        </button>
+        <div class="menu-content hidden px-6 pb-6">
+          <div class="grid gap-3">
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">1 viande</span><span class="text-red-400 font-bold">12€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">2 viandes</span><span class="text-red-400 font-bold">14€</span>
+            </div>
+            <div class="flex justify-between items-center py-2">
+              <span class="text-gray-300">3 viandes</span><span class="text-red-400 font-bold">16€</span>
+            </div>
+          </div>
+          <div class="mt-4 p-4 bg-white/[0.03] rounded-lg text-sm text-gray-400">
+            <p>Viandes : Kebab, Merguez, Tenders, Cordon Bleu, Steak, Végé, Kefta, Chicken Chika</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11. TexMex -->
+      <div class="rounded-xl border border-white/[0.06] bg-white/[0.02] overflow-hidden hover:border-red-500/30 transition">
+        <button onclick="toggleMenu(this)" class="w-full flex items-center justify-between px-6 py-5 text-left">
+          <div class="flex items-center gap-3">
+            <span class="text-red-400 font-bold">11</span>
+            <span class="text-white font-bold text-lg">TexMex</span>
+            <span class="text-gray-500 text-sm">(15)</span>
+          </div>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300"></i>
+        </button>
+        <div class="menu-content hidden px-6 pb-6">
+          <div class="grid gap-3">
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Tenders x3</span><span class="text-red-400 font-bold">2.90€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Tenders x6</span><span class="text-red-400 font-bold">5.50€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Tenders x12</span><span class="text-red-400 font-bold">10.90€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Onion Rings x4</span><span class="text-red-400 font-bold">3.50€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Onion Rings x8</span><span class="text-red-400 font-bold">6.90€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Onion Rings x12</span><span class="text-red-400 font-bold">10.90€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Sticks Mozza x3</span><span class="text-red-400 font-bold">2.90€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Sticks Mozza x6</span><span class="text-red-400 font-bold">5.50€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Sticks Mozza x12</span><span class="text-red-400 font-bold">10.90€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Nugget's x5</span><span class="text-red-400 font-bold">3.90€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Nugget's x10</span><span class="text-red-400 font-bold">7.90€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Nugget's x15</span><span class="text-red-400 font-bold">12.90€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Wings x3</span><span class="text-red-400 font-bold">2.90€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Wings x6</span><span class="text-red-400 font-bold">5.50€</span>
+            </div>
+            <div class="flex justify-between items-center py-2">
+              <span class="text-gray-300">Wings x12</span><span class="text-red-400 font-bold">10.90€</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- 12. Paninis -->
+      <div class="rounded-xl border border-white/[0.06] bg-white/[0.02] overflow-hidden hover:border-red-500/30 transition">
+        <button onclick="toggleMenu(this)" class="w-full flex items-center justify-between px-6 py-5 text-left">
+          <div class="flex items-center gap-3">
+            <span class="text-red-400 font-bold">12</span>
+            <span class="text-white font-bold text-lg">Paninis</span>
+            <span class="text-gray-500 text-sm">(13)</span>
+          </div>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300"></i>
+        </button>
+        <div class="menu-content hidden px-6 pb-6">
+          <div class="grid gap-3">
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">3 Fromages</span><span class="text-red-400 font-bold">7€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Chicken</span><span class="text-red-400 font-bold">7€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Cordon Bleu</span><span class="text-red-400 font-bold">7€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Kebab</span><span class="text-red-400 font-bold">7€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Kefta</span><span class="text-red-400 font-bold">7€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Lardon</span><span class="text-red-400 font-bold">7€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Merguez</span><span class="text-red-400 font-bold">7€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Nuggets</span><span class="text-red-400 font-bold">7€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Poulet pané</span><span class="text-red-400 font-bold">7€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Chèvre Miel</span><span class="text-red-400 font-bold">7€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Steak</span><span class="text-red-400 font-bold">7€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Tenders</span><span class="text-red-400 font-bold">7€</span>
+            </div>
+            <div class="flex justify-between items-center py-2">
+              <span class="text-gray-300">Végé</span><span class="text-red-400 font-bold">7€</span>
+            </div>
+          </div>
+          <div class="mt-4 p-4 bg-white/[0.03] rounded-lg text-sm text-gray-400">
+            <p>Options : Frites +1€ · Canette +1.50€</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 13. Salades -->
+      <div class="rounded-xl border border-white/[0.06] bg-white/[0.02] overflow-hidden hover:border-red-500/30 transition">
+        <button onclick="toggleMenu(this)" class="w-full flex items-center justify-between px-6 py-5 text-left">
+          <div class="flex items-center gap-3">
+            <span class="text-red-400 font-bold">13</span>
+            <span class="text-white font-bold text-lg">Salades</span>
+            <span class="text-gray-500 text-sm">(3)</span>
+          </div>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300"></i>
+        </button>
+        <div class="menu-content hidden px-6 pb-6">
+          <div class="grid gap-3">
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">O'Chèvre Miel</span><span class="text-red-400 font-bold">7.50€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">O'Rings</span><span class="text-red-400 font-bold">7.50€</span>
+            </div>
+            <div class="flex justify-between items-center py-2">
+              <span class="text-gray-300">O'Camembert</span><span class="text-red-400 font-bold">7.50€</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- 14. Frites & Barquettes -->
+      <div class="rounded-xl border border-white/[0.06] bg-white/[0.02] overflow-hidden hover:border-red-500/30 transition">
+        <button onclick="toggleMenu(this)" class="w-full flex items-center justify-between px-6 py-5 text-left">
+          <div class="flex items-center gap-3">
+            <span class="text-red-400 font-bold">14</span>
+            <span class="text-white font-bold text-lg">Frites &amp; Barquettes</span>
+            <span class="text-gray-500 text-sm">(11)</span>
+          </div>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300"></i>
+        </button>
+        <div class="menu-content hidden px-6 pb-6">
+          <div class="grid gap-3">
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Frites Cheddar Bacon</span><span class="text-red-400 font-bold">4€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Cheddar Oignons Crispy</span><span class="text-red-400 font-bold">4€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Fromagère Lardons</span><span class="text-red-400 font-bold">4€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Fromagère</span><span class="text-red-400 font-bold">3.50€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Cheddar</span><span class="text-red-400 font-bold">3.50€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Petite</span><span class="text-red-400 font-bold">2.50€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Moyenne</span><span class="text-red-400 font-bold">3€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Grande</span><span class="text-red-400 font-bold">3.50€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Barquette Chicken Tikka Curry</span><span class="text-red-400 font-bold">8€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Barquette Kebab</span><span class="text-red-400 font-bold">8€</span>
+            </div>
+            <div class="flex justify-between items-center py-2">
+              <span class="text-gray-300">Nuggets Cheddar Onions Crispy</span><span class="text-red-400 font-bold">7€</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 15. Desserts -->
+      <div class="rounded-xl border border-white/[0.06] bg-white/[0.02] overflow-hidden hover:border-red-500/30 transition">
+        <button onclick="toggleMenu(this)" class="w-full flex items-center justify-between px-6 py-5 text-left">
+          <div class="flex items-center gap-3">
+            <span class="text-red-400 font-bold">15</span>
+            <span class="text-white font-bold text-lg">Desserts</span>
+            <span class="text-gray-500 text-sm">(6)</span>
+          </div>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300"></i>
+        </button>
+        <div class="menu-content hidden px-6 pb-6">
+          <div class="grid gap-3">
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Burger O'Nutella</span><span class="text-red-400 font-bold">2€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Cheesecake Cookie</span><span class="text-red-400 font-bold">3.50€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Cheesecake Citron</span><span class="text-red-400 font-bold">3.50€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Tarte Daim</span><span class="text-red-400 font-bold">3.50€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Tiramisu Chocolat Noisette</span><span class="text-red-400 font-bold">3.50€</span>
+            </div>
+            <div class="flex justify-between items-center py-2">
+              <span class="text-gray-300">Tiramisu Caramel Spéculos</span><span class="text-red-400 font-bold">3.50€</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 16. Boissons -->
+      <div class="rounded-xl border border-white/[0.06] bg-white/[0.02] overflow-hidden hover:border-red-500/30 transition">
+        <button onclick="toggleMenu(this)" class="w-full flex items-center justify-between px-6 py-5 text-left">
+          <div class="flex items-center gap-3">
+            <span class="text-red-400 font-bold">16</span>
+            <span class="text-white font-bold text-lg">Boissons</span>
+            <span class="text-gray-500 text-sm">(13)</span>
+          </div>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-gray-400 transition-transform duration-300"></i>
+        </button>
+        <div class="menu-content hidden px-6 pb-6">
+          <div class="grid gap-3">
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Coca</span><span class="text-red-400 font-bold">1.80€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Coca Zero</span><span class="text-red-400 font-bold">1.80€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Coca Cherry</span><span class="text-red-400 font-bold">1.80€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Fanta</span><span class="text-red-400 font-bold">1.80€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Fuzetea</span><span class="text-red-400 font-bold">1.80€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Oasis</span><span class="text-red-400 font-bold">1.80€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Orangina</span><span class="text-red-400 font-bold">1.80€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Sprite</span><span class="text-red-400 font-bold">1.80€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Tropico</span><span class="text-red-400 font-bold">1.80€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Capri Sun</span><span class="text-red-400 font-bold">1.80€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Cristalline</span><span class="text-red-400 font-bold">1.50€</span>
+            </div>
+            <div class="flex justify-between items-center py-2 border-b border-white/[0.06]">
+              <span class="text-gray-300">Monster</span><span class="text-red-400 font-bold">3€</span>
+            </div>
+            <div class="flex justify-between items-center py-2">
+              <span class="text-gray-300">Coca 1.25L</span><span class="text-red-400 font-bold">3.50€</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </div>
+</section>
 
-    <!-- Bottom Bar -->
-    <div class="border-t border-white/[0.06] pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-      <p class="text-gray-500 text-sm">
-        &copy; 2025 L'Étoile Clermont-Ferrand. Tous droits réservés.
-      </p>
-      <div class="flex items-center gap-6">
-        <a href="#" class="text-gray-500 hover:text-red-400 transition-colors text-sm">Mentions Légales</a>
-        <a href="#" class="text-gray-500 hover:text-red-400 transition-colors text-sm">Politique de Confidentialité</a>
+
+<!-- ABOUT SECTION -->
+<section id="about" class="py-24 bg-[#0a0a0a]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div data-aos="fade-up">
+        <span class="text-red-400 text-sm font-semibold tracking-widest uppercase">À propos</span>
+        <h2 class="text-4xl md:text-5xl font-black text-white mt-4 mb-6">L'Étoile, Votre Restaurant Premium</h2>
+        <p class="text-gray-400 mb-6 leading-relaxed">
+          Bienvenue chez L'Étoile, votre restaurant de référence à Clermont-Ferrand. Avec nos 2 adresses, nous vous proposons une cuisine de qualité supérieure : tacos, burgers, sandwichs, bowls et bien plus encore.
+        </p>
+        <p class="text-gray-400 mb-8 leading-relaxed">
+          Nos frites sont faites maison, nos sauces sont signatures, et chaque produit est sélectionné avec soin. Ouvert 7j/7 de 10h à 01h, nous sommes là pour satisfaire toutes vos envies gourmandes.
+        </p>
+        <div class="grid grid-cols-2 gap-6">
+          <div class="bg-white/[0.03] backdrop-blur-xl border border-white/[0.06] rounded-xl p-5">
+            <div class="text-red-400 text-2xl font-black mb-1">2</div>
+            <div class="text-gray-400 text-sm">Adresses à Clermont</div>
+          </div>
+          <div class="bg-white/[0.03] backdrop-blur-xl border border-white/[0.06] rounded-xl p-5">
+            <div class="text-red-400 text-2xl font-black mb-1">7j/7</div>
+            <div class="text-gray-400 text-sm">10h - 01h</div>
+          </div>
+          <div class="bg-white/[0.03] backdrop-blur-xl border border-white/[0.06] rounded-xl p-5">
+            <div class="text-red-400 text-2xl font-black mb-1">100%</div>
+            <div class="text-gray-400 text-sm">Frites Maison</div>
+          </div>
+          <div class="bg-white/[0.03] backdrop-blur-xl border border-white/[0.06] rounded-xl p-5">
+            <div class="text-red-400 text-2xl font-black mb-1">13+</div>
+            <div class="text-gray-400 text-sm">Sauces Signature</div>
+          </div>
+        </div>
+      </div>
+      <div class="relative" data-aos="fade-up">
+        <div class="rounded-2xl overflow-hidden border border-white/[0.06]">
+          <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=600&h=700&fit=crop" alt="L'Étoile Restaurant" class="w-full h-[500px] object-cover">
+        </div>
+        <div class="absolute -bottom-6 -left-6 bg-red-500 text-white rounded-xl p-6 shadow-2xl">
+          <div class="text-3xl font-black">★</div>
+          <div class="text-sm font-bold mt-1">Premium Quality</div>
+        </div>
       </div>
     </div>
   </div>
-</footer>
-{% endblock %}
+</section>
 
+<!-- GALLERY SECTION -->
+<section id="gallery" class="py-24 bg-[#0a0a0a]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16" data-aos="fade-up">
+      <span class="text-red-400 text-sm font-semibold tracking-widest uppercase">Galerie</span>
+      <h2 class="text-4xl md:text-5xl font-black text-white mt-4">Nos Créations</h2>
+      <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Des plats préparés avec passion et présentés avec soin</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" data-aos="fade-up">
+      <div class="rounded-2xl overflow-hidden border border-white/[0.06] group">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&h=400&fit=crop" alt="Burger gourmet" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+      </div>
+      <div class="rounded-2xl overflow-hidden border border-white/[0.06] group">
+        <img src="https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=500&h=400&fit=crop" alt="Tacos signature" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+      </div>
+      <div class="rounded-2xl overflow-hidden border border-white/[0.06] group">
+        <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=500&h=400&fit=crop" alt="Frites maison" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+      </div>
+      <div class="rounded-2xl overflow-hidden border border-white/[0.06] group">
+        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500&h=400&fit=crop" alt="Bowl frais" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+      </div>
+      <div class="rounded-2xl overflow-hidden border border-white/[0.06] group">
+        <img src="https://images.unsplash.com/photo-1553909489-cd47e0907980?w=500&h=400&fit=crop" alt="Sandwich artisanal" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+      </div>
+      <div class="rounded-2xl overflow-hidden border border-white/[0.06] group">
+        <img src="https://images.unsplash.com/photo-1606755962773-d324e0a13086?w=500&h=400&fit=crop" alt="Dessert gourmand" class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CONTACT SECTION -->
+<section id="contact" class="py-24 bg-[#0a0a0a]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16" data-aos="fade-up">
+      <span class="text-red-400 text-sm font-semibold tracking-widest uppercase">Contact</span>
+      <h2 class="text-4xl md:text-5xl font-black text-white mt-4">Nos Adresses</h2>
+      <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Retrouvez-nous dans nos 2 restaurants à Clermont-Ferrand</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-8 mb-12" data-aos="fade-up">
+      <!-- Ballainvilliers -->
+      <div class="bg-white/[0.03] backdrop-blur-xl border border-white/[0.06] rounded-2xl p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center">
+            <i data-lucide="map-pin" class="w-6 h-6 text-red-400"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white">Ballainvilliers</h3>
+        </div>
+        <div class="space-y-4 text-gray-400">
+          <p class="flex items-center gap-3">
+            <i data-lucide="navigation" class="w-4 h-4 text-red-400"></i>
+            29 Rue Ballainvilliers, 63000 Clermont-Ferrand
+          </p>
+          <p class="flex items-center gap-3">
+            <i data-lucide="phone" class="w-4 h-4 text-red-400"></i>
+            <a href="tel:0473905738" class="hover:text-white transition">04 73 90 57 38</a>
+          </p>
+          <p class="flex items-center gap-3">
+            <i data-lucide="clock" class="w-4 h-4 text-red-400"></i>
+            7j/7 · 10h - 01h
+          </p>
+        </div>
+      </div>
+      <!-- Montferrand -->
+      <div class="bg-white/[0.03] backdrop-blur-xl border border-white/[0.06] rounded-2xl p-8">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center">
+            <i data-lucide="map-pin" class="w-6 h-6 text-red-400"></i>
+          </div>
+          <h3 class="text-xl font-bold text-white">Montferrand</h3>
+        </div>
+        <div class="space-y-4 text-gray-400">
+          <p class="flex items-center gap-3">
+            <i data-lucide="navigation" class="w-4 h-4 text-red-400"></i>
+            2 Rue Debay Facy, 63000 Clermont-Ferrand
+          </p>
+          <p class="flex items-center gap-3">
+            <i data-lucide="phone" class="w-4 h-4 text-red-400"></i>
+            <a href="tel:0463082410" class="hover:text-white transition">04 63 08 24 10</a>
+          </p>
+          <p class="flex items-center gap-3">
+            <i data-lucide="clock" class="w-4 h-4 text-red-400"></i>
+            7j/7 · 10h - 01h
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="rounded-2xl overflow-hidden border border-white/[0.06]" data-aos="fade-up">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2812.5!2d3.0833!3d45.7772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDXCsDQ2JzM4LjAiTiAzwrAwNCc1OS45IkU!5e0!3m2!1sfr!2sfr!4v1" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="w-full"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-[#050505] border-t border-white/[0.06] py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid md:grid-cols-4 gap-12">
+      <div>
+        <a href="#hero" class="flex items-center space-x-2 mb-6">
+          <span class="text-2xl font-bold text-white">★ L'ÉTOILE</span>
+        </a>
+        <p class="text-gray-500 text-sm leading-relaxed">Votre restaurant premium à Clermont-Ferrand. Des produits frais et de qualité pour une expérience culinaire unique.</p>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-4">Navigation</h4>
+        <ul class="space-y-3 text-gray-500 text-sm">
+          <li><a href="#hero" class="hover:text-white transition">Accueil</a></li>
+          <li><a href="#menu" class="hover:text-white transition">Notre Carte</a></li>
+          <li><a href="#about" class="hover:text-white transition">À propos</a></li>
+          <li><a href="#gallery" class="hover:text-white transition">Galerie</a></li>
+          <li><a href="#contact" class="hover:text-white transition">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-4">Catégories</h4>
+        <ul class="space-y-3 text-gray-500 text-sm">
+          <li><a href="#menu" class="hover:text-white transition">Tacos</a></li>
+          <li><a href="#menu" class="hover:text-white transition">Burgers</a></li>
+          <li><a href="#menu" class="hover:text-white transition">Sandwichs</a></li>
+          <li><a href="#menu" class="hover:text-white transition">Bowls</a></li>
+          <li><a href="#menu" class="hover:text-white transition">Desserts</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-bold mb-4">Contact</h4>
+        <ul class="space-y-3 text-gray-500 text-sm">
+          <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-red-400"></i>29 Rue Ballainvilliers</li>
+          <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-4 h-4 text-red-400"></i>2 Rue Debay Facy</li>
+          <li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 text-red-400"></i>04 73 90 57 38</li>
+          <li class="flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4 text-red-400"></i>04 63 08 24 10</li>
+        </ul>
+        <div class="flex items-center gap-4 mt-6">
+          <a href="#" class="w-10 h-10 bg-white/[0.05] border border-white/[0.1] rounded-full flex items-center justify-center hover:bg-red-500/20 hover:border-red-500/30 transition">
+            <i data-lucide="instagram" class="w-4 h-4 text-gray-400"></i>
+          </a>
+          <a href="#" class="w-10 h-10 bg-white/[0.05] border border-white/[0.1] rounded-full flex items-center justify-center hover:bg-red-500/20 hover:border-red-500/30 transition">
+            <i data-lucide="facebook" class="w-4 h-4 text-gray-400"></i>
+          </a>
+          <a href="#" class="w-10 h-10 bg-white/[0.05] border border-white/[0.1] rounded-full flex items-center justify-center hover:bg-red-500/20 hover:border-red-500/30 transition">
+            <i data-lucide="twitter" class="w-4 h-4 text-gray-400"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="border-t border-white/[0.06] mt-12 pt-8 text-center text-gray-600 text-sm">
+      <p>&copy; 2025 L'Étoile Clermont-Ferrand. Tous droits réservés.</p>
+    </div>
+  </div>
+</footer>
+
+{% endblock %}
 {% block scripts %}
 <script>
-  // ======================= NAVBAR SCROLL EFFECT =======================
-  (function() {
-    const navbar = document.getElementById('navbar');
-    if (!navbar) return;
-
-    function handleScroll() {
-      if (window.scrollY > 30) {
-        navbar.classList.add('bg-ink-900/90', 'backdrop-blur-xl', 'border-b', 'border-white/5');
-      } else {
-        navbar.classList.remove('bg-ink-900/90', 'backdrop-blur-xl', 'border-b', 'border-white/5');
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
-  })();
-
-  // ======================= MOBILE MENU TOGGLE =======================
-  (function() {
-    const menuToggle = document.getElementById('mobile-menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (!menuToggle || !mobileMenu) return;
-
-    menuToggle.addEventListener('click', function() {
-      mobileMenu.classList.toggle('hidden');
-      // Toggle icon between menu and x
-      const icon = menuToggle.querySelector('[data-lucide]');
-      if (icon) {
-        const isOpen = !mobileMenu.classList.contains('hidden');
-        icon.setAttribute('data-lucide', isOpen ? 'x' : 'menu');
-        lucide.createIcons();
-      }
-    });
-
-    // Close mobile menu when clicking a link
-    const mobileLinks = mobileMenu.querySelectorAll('a');
-    mobileLinks.forEach(function(link) {
-      link.addEventListener('click', function() {
-        mobileMenu.classList.add('hidden');
-        const icon = menuToggle.querySelector('[data-lucide]');
-        if (icon) {
-          icon.setAttribute('data-lucide', 'menu');
-          lucide.createIcons();
-        }
-      });
-    });
-  })();
-
-  // ======================= MENU ACCORDION =======================
-  function toggleMenu(button) {
-    const content = button.nextElementSibling;
-    const chevron = button.querySelector('[data-lucide="chevron-down"]');
-
-    if (!content || !content.classList.contains('menu-content')) return;
-
-    // Toggle visibility
-    if (content.classList.contains('hidden')) {
-      content.classList.remove('hidden');
-      content.style.maxHeight = content.scrollHeight + 'px';
-      content.style.opacity = '1';
-    } else {
-      content.style.maxHeight = '0px';
-      content.style.opacity = '0';
-      setTimeout(function() {
-        content.classList.add('hidden');
-      }, 300);
-    }
-
-    // Rotate chevron icon
-    if (chevron) {
-      chevron.classList.toggle('rotate-180');
-    }
+// Navbar scroll effect
+window.addEventListener('scroll', function() {
+  const navbar = document.getElementById('navbar');
+  if (window.scrollY > 30) {
+    navbar.classList.add('bg-[#0a0a0a]/95', 'backdrop-blur-xl', 'border-b', 'border-white/[0.06]', 'shadow-lg');
+    navbar.classList.remove('bg-transparent');
+  } else {
+    navbar.classList.remove('bg-[#0a0a0a]/95', 'backdrop-blur-xl', 'border-b', 'border-white/[0.06]', 'shadow-lg');
+    navbar.classList.add('bg-transparent');
   }
+});
+
+// Mobile menu toggle
+document.getElementById('menu-toggle').addEventListener('click', function() {
+  const mobileMenu = document.getElementById('mobile-menu');
+  mobileMenu.classList.toggle('hidden');
+});
+
+// Menu accordion toggle
+function toggleMenu(button) {
+  const content = button.nextElementSibling;
+  const chevron = button.querySelector('[data-lucide="chevron-down"]');
+  content.classList.toggle('hidden');
+  if (chevron) {
+    chevron.classList.toggle('rotate-180');
+  }
+}
 </script>
 {% endblock %}
