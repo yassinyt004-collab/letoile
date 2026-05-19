@@ -1,38 +1,33 @@
 "use client";
 
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 
 const reviews = [
   {
-    name: "Sofia Bensaid",
-    role: "Cliente fidèle",
-    img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&q=80",
+    name: "Maxime D.",
+    role: "Client régulier – Ballainvilliers",
     stars: 5,
-    text: "Tout simplement le meilleur tacos de la ville. La sauce signature est addictive, les frites sont parfaites. L'expérience premium, vraiment.",
+    text: "Le meilleur tacos de Clermont, et de loin. Le O'Majestik est une tuerie, les frites maison sont parfaites. Je recommande à 100%.",
   },
   {
-    name: "Karim El Amrani",
-    role: "Food blogger",
-    img: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=400&q=80",
+    name: "Sarah L.",
+    role: "Étudiante – Montferrand",
     stars: 5,
-    text: "Le Black Angus Burger est une œuvre d'art. La cuisson est maîtrisée, le pain brioché parfait, et le service est rapide. Bravo à toute l'équipe.",
+    text: "Le menu étudiant à 6.90€ est imbattable pour la qualité. Les burgers sont généreux et les sauces signature font toute la différence.",
   },
   {
-    name: "Yasmine Tazi",
-    role: "Cliente",
-    img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80",
+    name: "Karim B.",
+    role: "Client fidèle",
     stars: 5,
-    text: "Livraison ultra rapide, emballage premium, et surtout le goût... incomparable. C'est devenu notre rituel du vendredi soir en famille.",
+    text: "On commande les Box pour les soirées entre amis, c'est toujours frais et copieux. Le service est rapide même le vendredi soir. Bravo l'équipe !",
   },
   {
-    name: "Adam Cherkaoui",
-    role: "Client régulier",
-    img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80",
+    name: "Julie M.",
+    role: "Famille – Clermont-Ferrand",
     stars: 5,
-    text: "Qualité constante, équipe au top, ambiance soignée. L'Étoile a placé la barre très haut pour le fast-food au Maroc.",
+    text: "Les enfants adorent les nuggets et le menu enfants. Nous on prend les bowls signatures. Tout est fait maison, ça se sent dans le goût.",
   },
 ];
 
@@ -48,8 +43,8 @@ export default function Testimonials() {
 
   return (
     <section className="relative section-pad">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute left-1/2 top-1/2 h-[60vh] w-[80%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-crimson/10 blur-[140px]" />
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute left-1/2 top-1/2 h-[50vh] w-[70%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-crimson/8 blur-[120px]" />
       </div>
 
       <div className="container-x">
@@ -61,17 +56,17 @@ export default function Testimonials() {
           </h2>
         </div>
 
-        <div className="relative mx-auto mt-14 max-w-4xl">
-          <Quote className="pointer-events-none absolute -top-6 left-6 h-24 w-24 text-crimson/15" />
+        <div className="relative mx-auto mt-14 max-w-3xl">
+          <Quote className="pointer-events-none absolute -top-4 left-4 h-20 w-20 text-crimson/10" />
 
           <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-ink-800/60 p-8 backdrop-blur-sm md:p-12">
             <AnimatePresence mode="wait">
               <motion.div
                 key={r.name}
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -24 }}
-                transition={{ duration: 0.5 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4 }}
               >
                 <div className="flex items-center gap-1 text-gold-400">
                   {[...Array(r.stars)].map((_, i) => (
@@ -79,25 +74,19 @@ export default function Testimonials() {
                   ))}
                 </div>
 
-                <p className="mt-6 font-display text-2xl font-medium leading-relaxed text-white md:text-3xl">
+                <p className="mt-6 font-display text-xl font-medium leading-relaxed text-white md:text-2xl">
                   &ldquo;{r.text}&rdquo;
                 </p>
 
                 <div className="mt-8 flex items-center gap-4">
-                  <div className="relative h-14 w-14 overflow-hidden rounded-full ring-2 ring-crimson/40">
-                    <Image
-                      src={r.img}
-                      alt={r.name}
-                      fill
-                      sizes="56px"
-                      className="object-cover"
-                    />
+                  <div className="grid h-12 w-12 place-items-center rounded-full bg-red-grad text-lg font-black text-white shadow-glow">
+                    {r.name.charAt(0)}
                   </div>
                   <div>
                     <div className="font-display text-lg font-bold text-white">
                       {r.name}
                     </div>
-                    <div className="text-xs uppercase tracking-[0.18em] text-crimson-200">
+                    <div className="text-xs uppercase tracking-[0.15em] text-crimson-200">
                       {r.role}
                     </div>
                   </div>

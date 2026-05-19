@@ -7,8 +7,8 @@ import { Camera, ZoomIn } from "lucide-react";
 const shots = [
   {
     src: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=80",
-    label: "Cheeseburger Premium",
-    h: "h-[420px]",
+    label: "Burger Premium",
+    h: "h-[380px]",
   },
   {
     src: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=900&q=80",
@@ -22,17 +22,17 @@ const shots = [
   },
   {
     src: "https://images.unsplash.com/photo-1626700051175-6818013e1d4f?auto=format&fit=crop&w=900&q=80",
-    label: "Wrap Grillé",
+    label: "Wrap & Sandwichs",
     h: "h-[260px]",
   },
   {
     src: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80",
-    label: "Atelier Cuisine",
-    h: "h-[380px]",
+    label: "Bowls Signature",
+    h: "h-[360px]",
   },
   {
     src: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=900&q=80",
-    label: "Burger Maison",
+    label: "Double Cheese",
     h: "h-[300px]",
   },
   {
@@ -42,8 +42,8 @@ const shots = [
   },
   {
     src: "https://images.unsplash.com/photo-1607013251379-e6eecfffe234?auto=format&fit=crop&w=900&q=80",
-    label: "Sauces Signature",
-    h: "h-[340px]",
+    label: "Sauces Maison",
+    h: "h-[320px]",
   },
 ];
 
@@ -57,11 +57,12 @@ export default function Gallery() {
               <Camera className="h-3.5 w-3.5" /> Galerie
             </span>
             <h2 className="heading-display mt-4 text-white">
-              L&apos;univers <span className="text-gradient-red">L&apos;Étoile</span>
+              L&apos;univers{" "}
+              <span className="text-gradient-red">L&apos;Étoile</span>
             </h2>
             <p className="mt-4 max-w-xl text-white/55">
-              Plongez dans nos coulisses : la passion en images, la perfection
-              dans chaque détail.
+              Découvrez nos créations en images. Chaque plat est préparé avec
+              passion dans nos cuisines à Clermont-Ferrand.
             </p>
           </div>
         </div>
@@ -84,8 +85,8 @@ export default function Gallery() {
                 sizes="(min-width: 1024px) 25vw, 50vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink-900 via-ink-900/30 to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-95" />
-              <div className="absolute inset-0 bg-crimson/0 transition-colors duration-500 group-hover:bg-crimson/20" />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink-900 via-ink-900/30 to-transparent opacity-60 transition-opacity duration-500 group-hover:opacity-90" />
+              <div className="absolute inset-0 bg-crimson/0 transition-colors duration-500 group-hover:bg-crimson/15" />
 
               <figcaption className="absolute inset-x-0 bottom-0 flex translate-y-2 items-center justify-between p-5 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                 <span className="font-display text-lg font-bold text-white">
